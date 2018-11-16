@@ -20,7 +20,7 @@
 		<form class="septa-fare-form">
 			<div class="septa-container">
 				<div class="septa-container-header">
-					<img src="/septa-fares/lib/img/septa-img.png">
+					<img src="/lib/img/septa-img.png">
 					Regional Rail Fares	
 				</div>
 				<div class="septa-container-content">
@@ -30,11 +30,6 @@
 						</div>
 						<div class="container-section-formfield">
 							<select class="form-control" id="zone_select">
-								<option>Zone 1</option>
-								<option>Zone 2</option>
-								<option>Zone 3</option>
-								<option>Zone 4</option>
-								<option>NJ</option>
 							</select>
 						</div>
 					</div>
@@ -44,14 +39,12 @@
 						</div>
 						<div class="container-section-formfield">
 							<select class="form-control" id="when_select">
-								<option>Weekday</option>
-								<option>Evening</option>
-								<option>Weekend</option>
+								<option id="weekday" value="Weekday">Weekday - Single Trip</option>
+								<option id="evening_weekend" value="Evening">Evening/Weekend - Single Trip</option>
+								<option id="anytime" value="anytime">Anytime - Pack of 10</option>
 							</select>
 						</div>
-						<div class="container-section-helper">
-							This is an explanation about the above selected option
-						</div>
+						<div class="container-section-helper" id="time_of_ride_helper_text"></div>
 					</div>
 					<div class="form-group container-section" id="purchase_location">
 						<div class="container-section-header">
@@ -60,21 +53,26 @@
 						<div class="container-section-formfield">
 							<div id="location_formfields">
 								<div>
-									<input type="radio" class="location-radio" id="location_kiosk" name="location" value="kiosk"><span class="location-text"> Station Kiosk</span>
+									<input type="radio" checked class="location-radio" id="location_kiosk" name="location" value="advance_purchase"><span class="location-text"> Station Kiosk</span>
 								</div>
 								<div>
-									<input type="radio" class="location-radio" id="location_onboard" name="location" value="onboard"><span class="location-text"> Onboard</span>
+									<input type="radio" class="location-radio" id="location_onboard" name="location" value="onboard_purchase"><span class="location-text"> Onboard</span>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="form-group container-section" id="number_of_rides">
 						<div class="container-section-header">
-							How many rides will you need?
+							<span class="toggleable-div hide" id="number_of_rides_helper">
+								How many rides will you need?
+							</span>
+							<span class="toggleable-div hide" id="number_of_packs_helper">
+								How many packs will you need?
+							</span>
 						</div>
 						<div class="container-section-formfield" id="number_of_rides_outterdiv">
 							<div class="container-section-formfield" id="number_of_rides_innerdiv">
-								<input type="text" class="form-control" id="number_of_rides_text" name="" value="">
+								<input type="text" class="form-control" id="number_of_rides_text" name="" value="1">
 							</div>
 						</div>
 					</div>
@@ -83,80 +81,13 @@
 							Your fare will cost
 						</div>
 						<div class="container-section-formfield">
-							<span class="fare-total-text">$28.00</span>
+							<span class="fare-total-text">-</span>
 						</div>
 					</div>
 				</div>
 			</div>
 	</div>
 </div>
-
-
-<!--
-<div class="container">
-	<div class="row">
-		<div class="page-header">
-			<h1>Regional Rail Fares</h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="card col-md-5">
-			<div class="card-body">
-				<div class="row">
-					<h6 class="card-subtitle mb-2 text-muted"><span id="base_amount_label">0</span> <span id="base_currency_label">USD</span></h6>
-				</div>
-				<div class="row">
-					<h5 class="card-title"><span id="converted_amount_label">0</span> <span id="converted_currency_label">Euro</span></h5>
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<form class="form-horizontal">
-							<div class="form-group">
-								<div class="row">
-						    		<input type="text" class="form-control col-md-6 amount-input" data-convert-id="target_amount" id="base_amount" value="1">
-									<select class="form-control col-md-5 currency-list" id="base_currency">
-									</select>
-								</div>
-						  	</div>
-						  	<div class="form-group">
-						  		<div class="row">
-					    			<input type="text" class="form-control col-md-6 amount-input" data-convert-id="base_amount" id="converted_amount" value="0.87">
-									<select class="form-control col-md-5 currency-list" id="converted_currency">
-									</select>
-								</div>
-						  	</div>
-						</form>
-					</div>
-					<div class="col-md-3 switch-col">
-						<div id="switch-wrapper">
-							<button type="button" class="btn btn-primary switch-currencies">Switch! <i class="fas fa-arrows-alt-v"></i></button>
-							<!-- <input type="button" class="btn btn-primary" value="Switch!"> 
-						</div>
-						<!-- 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		
-		<!-- <div class="col-sm-12">
-			<input type="text" name="base_currency" class="txtbox">
-			<div>
-				<button type="button" class="btn btn-primary">Primary</button>
-			</div>
-		</div> 
-	</div>
-	<div class="row">
-		<!-- <div class="col-sm-12">
-			<input type="text" name="base_currency" class="txtbox">
-			<div>
-				<button type="button" class="btn btn-primary">Primary</button>
-			</div>
-		</div> 
-	</div>
-</div>
--->
 
 </body>
 
